@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bgcolor">#F0F0F0</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="colorPageBg">#00000000</color>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorTabText">#585858</color>
+    <color name="color_000000">#000000</color>
+    <color name="color_009688">#009688</color>
+    <color name="color_00A0E9">#00a0e9</color>
+    <color name="color_101010">#101010</color>
+    <color name="color_1C7720">#1c7720</color>
+    <color name="color_212121">#212121</color>
+    <color name="color_2B2B2B">#2b2b2b</color>
+    <color name="color_33333333">#333333</color>
+    <color name="color_535353">#535353</color>
+    <color name="color_ACAFB4">#acafb4</color>
+    <color name="color_BBBBBB">#bbbbbb</color>
+    <color name="color_EEEEEE">#eeeeee</color>
+    <color name="color_F0F0F0">#f0f0f0</color>
+    <color name="color_FAFAFA">#fafafa</color>
+    <color name="color_FF333333">#ff333333</color>
+    <color name="color_FF38B26D">#ff38b26d</color>
+    <color name="color_FFC4C45D">#ffc4c45d</color>
+    <color name="color_e8e8e8">#e8e8e8</color>
+    <color name="dark">#803cbcb7</color>
+    <color name="darkBlack">#666666</color>
+
+    <color name="select_btn_color1">#343dfc</color>
+    <color name="select_btn_color2">#b31cf1</color>
+    <color name="select_btn_color3">#17171f</color>
+    <color name="select_btn_color4">#282840</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_light">#9C9C9C</color>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504364618590",
+    "project_id": "call-history-bfd3b",
+    "storage_bucket": "call-history-bfd3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504364618590:android:abba2ee7d410d6d69975cf",
+        "android_client_info": {
+          "package_name": "com.myapps.getcall_smsinfoanynumberthree"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIvCj4hZ43Zre-gdnU4tpmX8hIPLpiF3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
