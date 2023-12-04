@@ -17,15 +17,28 @@ import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.myapps.getcall_smsinfoanynumberthree.R;
+import com.myapps.getcall_smsinfoanynumberthree.model.ResponseDataList;
+import com.myapps.getcall_smsinfoanynumberthree.utils.Const;
+import com.myapps.getcall_smsinfoanynumberthree.utils.RetrofitAPI;
 import com.pesonal.adsdk.ADS_SplashActivity;
 import com.pesonal.adsdk.AppManage;
 import com.pesonal.adsdk.getDataListner;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class SplashActivity extends ADS_SplashActivity {
 
+    private static final String TAG = "SplashActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,21 +49,7 @@ public class SplashActivity extends ADS_SplashActivity {
             @Override
             public void onSuccess() {
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        isAD = false;
-                        AppManage.getInstance(SplashActivity.this).showInterstitialAd_splash(SplashActivity.this, new AppManage.MyInterStitialCallback() {
-                            @Override
-                            public void callbackCall() {
-                                Intent intent = new Intent(SplashActivity.this, StartActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                        }, AppManage.app_innerClickCntSwAd);
-
-                    }
-                }, 2000);
+               fetchDataList();
             }
 
             @Override
@@ -76,6 +75,46 @@ public class SplashActivity extends ADS_SplashActivity {
                 Log.e("my_log", "ongetExtradata: " + extraData.toString());
             }
         });
+    }
+
+
+    public void fetchDataList() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Const.MAIN_BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+        Call<ResponseDataList> call = retrofitAPI.getDataList();
+        call.enqueue(new Callback<ResponseDataList>() {
+            @Override
+            public void onResponse(@NonNull Call<ResponseDataList> call, Response<ResponseDataList> response) {
+
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "onResponse ResponseDataList : " + response.body());
+                    Const.saveDataList(SplashActivity.this,"ResponseDataList",response.body());
+                    isAD = false;
+                    AppManage.getInstance(SplashActivity.this).showInterstitialAd_splash(SplashActivity.this, new AppManage.MyInterStitialCallback() {
+                        @Override
+                        public void callbackCall() {
+                            Intent intent = new Intent(SplashActivity.this, StartActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }, AppManage.app_innerClickCntSwAd);
+                } else {
+                    Toast.makeText(SplashActivity.this, "Something want wrong...", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ResponseDataList> call, @NonNull Throwable t) {
+                Log.e(TAG, "onFailure: " + t.getLocalizedMessage());
+                Toast.makeText(SplashActivity.this, "Fail to get the data..\nPlease Restart App", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     public void showRedirectDialog(final String url) {

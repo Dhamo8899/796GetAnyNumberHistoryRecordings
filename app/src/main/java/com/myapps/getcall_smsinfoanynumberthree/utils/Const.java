@@ -10,6 +10,7 @@ import com.myapps.getcall_smsinfoanynumberthree.model.ResponseDataList;
 
 public class Const {
     public static String MAIN_BASE_URL="https://signal.makemyapps.co/signal/";
+    public static String MOBILE_NUMBER="MOBILE_NUMBER";
 
     public static boolean isNetworkConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

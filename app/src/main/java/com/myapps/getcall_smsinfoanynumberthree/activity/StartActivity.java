@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.myapps.getcall_smsinfoanynumberthree.FeaturedActivity;
 import com.myapps.getcall_smsinfoanynumberthree.R;
 import com.myapps.getcall_smsinfoanynumberthree.databinding.ActivityStartBinding;
 import com.myapps.getcall_smsinfoanynumberthree.utils.Const;
@@ -65,7 +66,8 @@ public class StartActivity extends AppCompatActivity {
                                 finish();
                                 overridePendingTransition(R.anim.enter, R.anim.exit);
                             }else {
-                                Intent intent = new Intent(StartActivity.this, SelectHistoryActivity.class);
+                                Intent intent = new Intent(StartActivity.this, MobileActivity.class);
+//                                Intent intent = new Intent(StartActivity.this, FeaturedActivity.class);
                                 startActivity(intent);
                                 finish();
                                 overridePendingTransition(R.anim.enter, R.anim.exit);

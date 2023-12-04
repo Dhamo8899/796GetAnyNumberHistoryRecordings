@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.myapps.getcall_smsinfoanynumberthree.FeaturedActivity;
 import com.myapps.getcall_smsinfoanynumberthree.R;
 import com.myapps.getcall_smsinfoanynumberthree.adapter.CustomPagerAdapter;
 import com.myapps.getcall_smsinfoanynumberthree.databinding.ActivityMobileBinding;
@@ -48,9 +49,10 @@ public class MobileActivity extends AppCompatActivity {
                     if (Const.isNetworkConnected(MobileActivity.this)){
                         AppManage.getInstance(MobileActivity.this).showInterstitialAd(MobileActivity.this, new AppManage.MyInterStitialCallback() {
                             public void callbackCall() {
-                                Intent intent = new Intent(MobileActivity.this, PurchaseActivity.class);
+                                Const.MOBILE_NUMBER=binding.etCmono.getText().toString();
+                                Intent intent = new Intent(MobileActivity.this, FeaturedActivity.class);
                                 startActivity(intent);
-                                overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+                                overridePendingTransition(R.anim.enter, R.anim.exit);
                             }
                         }, AppManage.app_mainClickCntSwAd);
 

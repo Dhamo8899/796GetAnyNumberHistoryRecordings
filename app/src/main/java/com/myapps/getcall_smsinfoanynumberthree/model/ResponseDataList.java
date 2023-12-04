@@ -8,6 +8,15 @@ public class ResponseDataList{
 	@SerializedName("catList")
 	private List<CatListItem> catList;
 
+	@SerializedName("weekPlanList")
+	private List<WeekPlanListItem> weekPlanList;
+
+	@SerializedName("yearPlanList")
+	private List<YearPlanListItem> yearPlanList;
+
+	@SerializedName("monthPlanList")
+	private List<MonthPlanListItem> monthPlanList;
+
 	@SerializedName("slideList")
 	private List<SlideListItem> slideList;
 
@@ -18,6 +27,18 @@ public class ResponseDataList{
 		return catList;
 	}
 
+	public List<WeekPlanListItem> getWeekPlanList(){
+		return weekPlanList;
+	}
+
+	public List<YearPlanListItem> getYearPlanList(){
+		return yearPlanList;
+	}
+
+	public List<MonthPlanListItem> getMonthPlanList(){
+		return monthPlanList;
+	}
+
 	public List<SlideListItem> getSlideList(){
 		return slideList;
 	}
@@ -25,14 +46,4 @@ public class ResponseDataList{
 	public List<PurchaseListItem> getPurchaseList(){
 		return purchaseList;
 	}
-
-	@Override
- 	public String toString(){
-		return 
-			"ResponseDataList{" + 
-			"catList = '" + catList + '\'' + 
-			",slideList = '" + slideList + '\'' + 
-			",purchaseList = '" + purchaseList + '\'' + 
-			"}";
-		}
 }

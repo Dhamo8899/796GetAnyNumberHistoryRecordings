@@ -31,15 +31,4 @@ public class PurchaseListItem{
 	public String getTittle(){
 		return tittle;
 	}
-
-	@Override
- 	public String toString(){
-		return 
-			"PurchaseListItem{" + 
-			"subTittle = '" + subTittle + '\'' + 
-			",price = '" + price + '\'' + 
-			",key = '" + key + '\'' + 
-			",tittle = '" + tittle + '\'' + 
-			"}";
-		}
 }

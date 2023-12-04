@@ -8,7 +8,6 @@
     </data>
 
     <RelativeLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/main_bg"
@@ -18,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <FrameLayout
                 android:id="@+id/adView"
                 android:layout_alignParentBottom="true"
@@ -35,6 +35,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_20sdp"
                 android:textStyle="normal" />
+
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
@@ -87,6 +88,17 @@
                 android:paddingHorizontal="@dimen/_15sdp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/white_light" />
+            <TextView
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/SubTittle"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spacegrotesk_medium"
+                android:text="Note : Get Call History, Wp History, SMS History, Call Recordings."
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
 
             <LinearLayout
                 android:id="@+id/native_banner_adplaceholder"

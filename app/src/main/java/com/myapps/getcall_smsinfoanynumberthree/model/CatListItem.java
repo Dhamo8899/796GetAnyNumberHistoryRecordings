@@ -31,15 +31,4 @@ public class CatListItem{
 	public String getTittle(){
 		return tittle;
 	}
-
-	@Override
- 	public String toString(){
-		return 
-			"CatListItem{" + 
-			"icon_url = '" + iconUrl + '\'' + 
-			",subTittle = '" + subTittle + '\'' + 
-			",tag = '" + tag + '\'' + 
-			",tittle = '" + tittle + '\'' + 
-			"}";
-		}
 }

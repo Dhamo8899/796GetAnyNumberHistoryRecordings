@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg"
+        tools:context=".FeaturedActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvHeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/mainttfb"
+                android:text="Which Mobile Number Data Do You Want?"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvSubHeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/mainttfb"
+                android:text="Which Mobile Number Data Do You Want?"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="normal" />
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tbLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/tab_bg"
+                        android:visibility="visible"
+                        app:tabBackground="@drawable/tab_selector"
+                        app:tabIndicatorHeight="0dp"
+                        app:tabInlineLabel="true"
+                        app:tabMode="fixed"
+                        app:tabPadding="@dimen/_5sdp"
+                        app:tabRippleColor="@color/transparent"
+                        app:tabTextColor="@color/white" />
+
+                    <LinearLayout
+                        android:paddingBottom="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@drawable/tab_bg"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvTittle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:fontFamily="@font/mainttfb"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="Full"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <TextView
+                            android:id="@+id/tvPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/spacegrotesk_bold"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="$104.00"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_17sdp" />
+
+                        <TextView
+                            android:id="@+id/tvPriceOff"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/spacegrotesk_bold"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="41.25 % OFF"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_17sdp" />
+
+                        <Button
+                            android:id="@+id/btnBuy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:layout_marginVertical="@dimen/_10sdp"
+                            android:background="@drawable/btn_bg_15"
+                            android:text="Buy Now"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <TextView
+                            android:id="@+id/tvExpand"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:drawableRight="@drawable/baseline_import_export_24"
+                            android:fontFamily="@font/spacegrotesk_medium"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="See What's Included "
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvIncludeList"
+                            android:visibility="gone"
+                            android:nestedScrollingEnabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            tools:listitem="@layout/item_include_line"
+                            tools:itemCount="5"
+                            android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:paddingBottom="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@drawable/tab_bg"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvTittle2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:fontFamily="@font/mainttfb"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="Basic"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <TextView
+                            android:id="@+id/tvPrice2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/spacegrotesk_bold"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="$104.00"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_17sdp" />
+
+                        <TextView
+                            android:id="@+id/tvPriceOff2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/spacegrotesk_bold"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="41.25 % OFF"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_17sdp" />
+
+                        <Button
+                            android:id="@+id/btnBuy2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:layout_marginVertical="@dimen/_10sdp"
+                            android:background="@drawable/btn_bg_15"
+                            android:text="Buy Now"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <TextView
+                            android:id="@+id/tvExpand2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:drawableRight="@drawable/baseline_import_export_24"
+                            android:fontFamily="@font/spacegrotesk_medium"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="See What's Included "
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvIncludeList2"
+                            android:visibility="gone"
+                            android:nestedScrollingEnabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            tools:listitem="@layout/item_include_line"
+                            tools:itemCount="5"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

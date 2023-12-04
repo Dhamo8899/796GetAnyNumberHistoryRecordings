@@ -28,7 +28,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class SelectHistoryActivity extends AppCompatActivity {
     private static final String TAG = "SelectHistoryActivity";
     ActivitySelectHistoryBinding binding;
-    CustomLoadingDialog customLoadingDialog=new CustomLoadingDialog(this);
+
+    ResponseDataList responseDataList = new ResponseDataList();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +40,9 @@ public class SelectHistoryActivity extends AppCompatActivity {
         AppManage.getInstance(SelectHistoryActivity.this).showBanner((ViewGroup) findViewById(R.id.adView));
         AppManage.getInstance(this).showNative((ViewGroup) findViewById(R.id.native_banner_adplaceholder), false, 1);
 
-        if (Const.isOnline(this)){
-            fetchDataList();
-        }else {
-            Toast.makeText(this,"Please check your internet connection!!",Toast.LENGTH_SHORT).show();
-        }
+        responseDataList = Const.getDataList(this, "ResponseDataList");
+        setupRecyclerView(responseDataList);
+
 
     }
 
@@ -52,39 +52,7 @@ public class SelectHistoryActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    public void fetchDataList() {
-        customLoadingDialog.showLoadingDialog();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Const.MAIN_BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-        Call<ResponseDataList> call = retrofitAPI.getDataList();
-        call.enqueue(new Callback<ResponseDataList>() {
-            @Override
-            public void onResponse(@NonNull Call<ResponseDataList> call, Response<ResponseDataList> response) {
-
-                if (response.isSuccessful()) {
-                    Log.d(TAG, "onResponse ResponseDataList : " + response.body());
-                    Const.saveDataList(SelectHistoryActivity.this,"ResponseDataList",response.body());
-                    setupRecyclerView(response.body());
-                } else {
-                    Toast.makeText(SelectHistoryActivity.this, "Something want wrong...", Toast.LENGTH_SHORT).show();
-                }
-                customLoadingDialog.dismissLoadingDialog();
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<ResponseDataList> call, @NonNull Throwable t) {
-                Log.e(TAG, "onFailure: " + t.getLocalizedMessage());
-                customLoadingDialog.dismissLoadingDialog();
-                Toast.makeText(SelectHistoryActivity.this, "Fail to get the data..\nPlease Restart App", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-    }
 
     private void setupRecyclerView(ResponseDataList responseDataList){
         CatAdapter catAdapter=new CatAdapter(responseDataList.getCatList(),this);

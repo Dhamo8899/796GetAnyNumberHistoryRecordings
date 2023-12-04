@@ -31,15 +31,4 @@ public class SlideListItem{
 	public String getTittle(){
 		return tittle;
 	}
-
-	@Override
- 	public String toString(){
-		return 
-			"SlideListItem{" + 
-			"icon_url = '" + iconUrl + '\'' + 
-			",number = '" + number + '\'' + 
-			",time = '" + time + '\'' + 
-			",tittle = '" + tittle + '\'' + 
-			"}";
-		}
 }
